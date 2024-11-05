@@ -17,20 +17,9 @@ app.use(express.json())
 
 //routes
 app.get("/", (req, res) => {
-    res.render("index")
+    res.send("megha")
 })
-app.get("/signIn", (req, res) => {
-    res.render("signIn")
-})
-app.get("/addtask", (req, res) => {
-    res.render("addTask")
-})
-app.get("/updatetask", (req, res) => {
-    res.render("update")
-})
-app.get("/gettask", (req, res) => {
-    res.render("alltasks")
-})
+
 app.use("/api/v1", router)
 app.use("/api/v2", taskRoute)
 
