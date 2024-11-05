@@ -6,8 +6,10 @@ import mongoose from "mongoose";
 import user_schema from "./modules/user.js";
 import router from "./routes/auth.js";
 import taskRoute from "./routes/tasksRoute.js";
+import cors from "cors"
 dotenv.config();
 let app = express()
+let port = process.env.PORT
 app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -41,6 +43,6 @@ async function delData() {
 }
 // delData()
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log("your server is running on", process.env.PORT)
 })
