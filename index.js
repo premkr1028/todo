@@ -11,6 +11,7 @@ dotenv.config();
 let app = express()
 let port = process.env.PORT
 app.set("view engine", "ejs")
+app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
