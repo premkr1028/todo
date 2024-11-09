@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
     
         })
         if (!userData) {
-            return res.status(400).send({ message: "failed" })
+            return res.status(400).send("email already exist")
         }
         res.status(200).json({message:"signUp Success"})
     }); 
