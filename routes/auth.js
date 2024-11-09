@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
         if (!userData) {
             return res.status(400).send({ message: "failed" })
         }
-        res.status(200).json({message:"signUp Success")
+        res.status(200).json({message:"signUp Success"})
     }); 
 })
 router.post("/signin", async (req, res) => {
