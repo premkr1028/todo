@@ -7,7 +7,7 @@ router.post("/register", async (req, res) => {
     let { userName, email, password } = req.body;
     const isUserExist = await user_schema.findOne({email})
     if(isUserExist){
-        return res.status(404).send("user already exist")
+        return res.status(200).send("user already exist")
     }
     bcrypt.hash(password, saltRounds, async function (err, hash) {
         let userData = await user_schema.create({
