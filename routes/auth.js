@@ -5,19 +5,25 @@ let router = express.Router()
 let saltRounds = 10
 router.post("/register", async (req, res) => {
     let { userName, email, password } = req.body;
-    bcrypt.hash(password, saltRounds,async function (err, hash) {
+    const isUserExist = await user_schema.findOne({email})
+    if(isUserExist){
+        return res.status(404).send("user already exist")
+    }
+    bcrypt.hash(password, saltRounds, async function (err, hash) {
         let userData = await user_schema.create({
             userName,
             email,
-            password :hash
-    
+            password: hash
+
         })
+        console.log(userData)
         if (!userData) {
-            return res.status(400).send("email already exist")
+            return res.status(400).send({ message: "failed" })
         }
-        res.status(200).json({message:"signUp Success"})
-    }); 
-})
+        res.status(200).json(userData)
+    })
+   
+}); 
 router.post("/signin", async (req, res) => {
 const { email, password } = req.body;
 let userData = await user_schema.findOne({email})
