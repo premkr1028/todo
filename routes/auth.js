@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
         if (!userData) {
             return res.status(400).send({ message: "failed" })
         }
-        res.status(200).send(userData._id)
+        res.status(200).send("Account created")
     })
    
 }); 
@@ -35,7 +35,7 @@ bcrypt.compare(password, userData.password, function(err, result) {
     if(!result){
         return res.status(400).json({"message":"Invalid Password"})
           }
-          res.status(200).json({"Log in":"success"})
+                 res.status(200).send(userData._id)
         });
 })
 
