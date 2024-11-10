@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
         if (!userData) {
             return res.status(400).send({ message: "failed" })
         }
-        res.status(200).send("account created")
+        res.status(200).send(userData._id)
     })
    
 }); 
