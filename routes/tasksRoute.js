@@ -5,8 +5,8 @@ import taskDet from "../modules/tasks.js";
 let taskRoute = Router()
 
 taskRoute.post("/addTask", async (req, res) => {
-    const { tittle, body, email } = req.body;
-   let existingUser = await user_schema.findById(id)
+    const { tittle, body, id } = req.body;
+   let existingUser = await user_schema.findById({_id:id})
     if (!existingUser) {
         return res.status(400).json({ "msg": "user not found" })
     }
