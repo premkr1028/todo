@@ -6,7 +6,7 @@ let taskRoute = Router()
 
 taskRoute.post("/addTask", async (req, res) => {
     const { tittle, body, email } = req.body;
-    let existingUser = await user_schema.findOne({ email })
+   let existingUser = await user_schema.findById(id)
     if (!existingUser) {
         return res.status(400).json({ "msg": "user not found" })
     }
