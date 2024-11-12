@@ -30,7 +30,8 @@ taskRoute.delete("/deleteTask:id", async (req, res) => {
 
 
 taskRoute.get("/getTasks", async (req, res) => {
-
+    console.log(req)
+    console.log(req.body)
     const {uid} = req.query;
     console.log(uid)
     let user = await user_schema.findById({ _id:uid })
