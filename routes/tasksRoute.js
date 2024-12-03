@@ -22,8 +22,8 @@ taskRoute.put("/updateTask/:id", async (req, res) => {
     updatingTask.save().then(() => res.status(200).json({ updatingTask }))
 })
 taskRoute.delete("/deleteTask:id", async (req, res) => {
-    const { email } = req.body;
-    await user_schema.findByIdAndUpdate(email, { $pull: { taskList: req.params.id } })
+    // const { email } = req.body;
+    // await user_schema.findByIdAndUpdate(email, { $pull: { taskList: req.params.id } })
     let deleteTask = await taskDet.findByIdAndDelete(req.params.id).then(() => res.status(200).json({ "msg": "delete" }))
 
 })
